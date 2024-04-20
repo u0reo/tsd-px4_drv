@@ -22,8 +22,8 @@ echo && echo '=== Build Driver using Docker ==='
 docker run --rm \
   -v /lib/firmware:/lib/firmware:rw \
   -v /usr/src/px4_drv-0.2.1:/usr/src/px4_drv-0.2.1:rw \
-  tsd-px4-driver
-docker rmi tsd-px4-driver
+  ureo/tsd-px4_drv
+docker rmi ureo/tsd-px4_drv
 
 # DKMSを使ってインストール
 echo && echo '=== Install Driver using DKMS ==='
