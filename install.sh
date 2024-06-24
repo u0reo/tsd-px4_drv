@@ -12,7 +12,7 @@ fi
 
 # ドライバインストールに必要なDKMSとカーネルヘッダをインストール
 echo '=== Install DKMS and Kernel Headers ==='
-apt install -y dkms raspberrypi-kernel-headers
+apt install -y dkms linux-headers-$(uname -r)
 
 # ドライバのコピー先ディレクトリを作成
 mkdir -p /lib/firmware /usr/src/px4_drv-0.2.1
@@ -23,7 +23,7 @@ docker run --rm \
   -v /lib/firmware:/lib/firmware:rw \
   -v /usr/src/px4_drv-0.2.1:/usr/src/px4_drv-0.2.1:rw \
   ureo/tsd-px4_drv
-docker rmi ureo/tsd-px4_drv
+docker rmi -f ureo/tsd-px4_drv
 
 # DKMSを使ってインストール
 echo && echo '=== Install Driver using DKMS ==='

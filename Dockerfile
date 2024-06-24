@@ -1,7 +1,7 @@
 FROM alpine:3 AS builder
 
 RUN apk add --update-cache --no-cache make gcc musl-dev && \
-  wget -O - https://github.com/nns779/px4_drv/archive/refs/heads/develop.zip | unzip - && \
+  wget -O - https://github.com/tsukumijima/px4_drv/archive/refs/heads/develop.zip | unzip - && \
   cd px4_drv-develop/fwtool && \
   make -j$(nproc) && \
   tar czvf /px4_drv.tar.gz /px4_drv-develop
